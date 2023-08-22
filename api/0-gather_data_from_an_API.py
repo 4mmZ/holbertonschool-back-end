@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """ Module """
 
-from urllib import request
+import json
 import requests
 from sys import argv, stdout
-import json
+
 
 if __name__ == '__main__':
     """ """
