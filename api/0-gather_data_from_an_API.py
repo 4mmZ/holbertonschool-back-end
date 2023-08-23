@@ -34,8 +34,7 @@ if __name__ == '__main__':
                 number_of_done_tasks += 1
             total_number_of_tasks += 1
 
-    print(
-        f"Employee {users_data['name']} is done with tasks "
-        f"({number_of_done_tasks}/{total_number_of_tasks}):", file=sys.stdout)
+    print("Employee {} is done with tasks ({}/{}):"
+          .format(users_data['name'], number_of_done_tasks, total_number_of_tasks))
     for task_title in completed_task:
-        print(f"\t {task_title['title']}", file=sys.stdout)
+        print("\t {}". format(task_title['title']))
