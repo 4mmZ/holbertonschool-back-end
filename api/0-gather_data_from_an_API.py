@@ -33,4 +33,4 @@ if __name__ == '__main__':
     print("Employee {} is done with tasks ({}/{}):"
           .format(users_data['name'], done_task, total_task), file=sys.stdout)
     for task_title in completed_task:
-        print("\t {}". format(task_title['title']), file=sys.stdout)
+        print("\t {}".format(task_title['title']), file=sys.stdout)
