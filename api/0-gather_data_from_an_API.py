@@ -9,10 +9,6 @@ import sys
 if __name__ == '__main__':
     """ """
 
-    if len(sys.argv) != 2:
-        print("Usage: python3 todo.py employee_id")
-        sys.exit(1)
-
     full_api = requests.get("https://jsonplaceholder.typicode.com/todos/")
 
     users_api = requests.get(
