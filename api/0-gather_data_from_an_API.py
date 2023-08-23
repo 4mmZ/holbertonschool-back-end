@@ -19,18 +19,18 @@ if __name__ == '__main__':
     full_data = json.loads(text_full_api)
     users_data = json.loads(text_users_api)
 
-    total_number_of_tasks = 0
-    number_of_done_tasks = 0
+    total_task = 0
+    done_task = 0
     completed_task = []
 
     for todo in full_data:
         if todo['userId'] == users_data['id']:
             if todo['completed']:
                 completed_task.append(todo)
-                number_of_done_tasks += 1
-            total_number_of_tasks += 1
+                done_task += 1
+            total_task += 1
 
     print("Employee {} is done with tasks ({}/{}):"
-          .format(users_data['name'], number_of_done_tasks, total_number_of_tasks), file=sys.stdout)
+          .format(users_data['name'], done_task, total_task), file=sys.stdout)
     for task_title in completed_task:
         print("\t {}". format(task_title['title']), file=sys.stdout)
