@@ -12,7 +12,7 @@ if __name__ == '__main__':
     full_api = requests.get("https://jsonplaceholder.typicode.com/todos/")
 
     users_api = requests.get(
-        f"https://jsonplaceholder.typicode.com/users/{sys.argv[1]}/")
+        "https://jsonplaceholder.typicode.com/users/{}/".format(sys.argv[1]))
 
     text_full_api = full_api.text
     text_users_api = users_api.text
@@ -31,6 +31,6 @@ if __name__ == '__main__':
             total_number_of_tasks += 1
 
     print("Employee {} is done with tasks ({}/{}):"
-          .format(users_data['name'], number_of_done_tasks, total_number_of_tasks))
+          .format(users_data['name'], number_of_done_tasks, total_number_of_tasks), file=sys.stdout)
     for task_title in completed_task:
-        print("\t {}". format(task_title['title']))
+        print("\t {}". format(task_title['title']), file=sys.stdout)
