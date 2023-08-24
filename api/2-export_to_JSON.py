@@ -23,7 +23,7 @@ if __name__ == '__main__':
     tasks = []
 
     for todo in full_data:
-        if todo['userId'] == users_data['id']:
+        if todo['userId'] == int(sys.argv[1]):
             task_status = "True" if todo['completed'] else "False"
             tasks.append({'task': todo['title'],
                           'completed': task_status,
@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     all_dict = {users_data['id']: tasks}
 
-    filename = "{}.json".format(users_data['id'])
+    filename = "{}.json".format(sys.argv[1])
 
     with open(filename, mode='w') as json_file:
         json.dump(all_dict, json_file)
