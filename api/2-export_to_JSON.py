@@ -33,5 +33,5 @@ if __name__ == '__main__':
 
     filename = "{}.json".format(users_data['id'])
 
-    with open(filename, mode="w", newline='') as json_file:
+    with open(filename, mode='w') as json_file:
         json.dump(all_dict, json_file)
