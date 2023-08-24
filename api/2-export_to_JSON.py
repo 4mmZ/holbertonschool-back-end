@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     all_dict = {users_data['id']: tasks}
 
-    filename = f"{users_data['id']}.json"
+    filename = "{}.json".format(users_data['id'])
 
     with open(filename, mode="w", newline='') as json_file:
         json.dump(all_dict, json_file)
