@@ -2,9 +2,10 @@
 """ comments """
 
 import csv
+import json
 import requests
 import sys
-import json
+
 
 if __name__ == '__main__':
     """ """
@@ -26,7 +27,8 @@ if __name__ == '__main__':
     for todo in full_data:
         if todo['userId'] == users_data['id']:
             task_status = "True" if todo['completed'] else "False"
-            tasks.append([str(users_data['id']), users_data['username'], task_status, todo['title']])
+            tasks.append([str(users_data['id']),
+                          users_data['username'], task_status, todo['title']])
 
     filename = f"{users_data['id']}.csv"
 
