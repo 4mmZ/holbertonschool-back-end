@@ -10,6 +10,10 @@ import sys
 if __name__ == '__main__':
     """ """
 
+    if len(sys.argv) != 2:
+        print("Usage: {} <user_id>".format(sys.argv[0]))
+        sys.exit(1)
+
     full_api = requests.get("https://jsonplaceholder.typicode.com/todos/")
 
     users_api = requests.get(
@@ -26,12 +30,12 @@ if __name__ == '__main__':
         if todo['userId'] == int(sys.argv[1]):
             task_status = "True" if todo['completed'] else "False"
             tasks.append({'task': todo['title'],
-                          'completed': task_status,
+                          'completed': todo['completed'],
                           'username': users_data['username']})
 
     all_dict = {users_data['id']: tasks}
 
-    filename = "{}.json".format(sys.argv[1])
+    filename = "{}.json".format(int(sys.argv[1]))
 
     with open(filename, mode='w') as json_file:
         json.dump(all_dict, json_file)
